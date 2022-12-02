@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>indicadoresss</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+   
+     
+
+      <ion-item *ngFor = 'let indicador of indicadores'>
+       
+        <ion-label>
+          <h2>{{indicador}}</h2>
+          
+        </ion-label>
+      </ion-item>
+
+      
+    
+  </ion-list>
+
+  
+</ion-content>
