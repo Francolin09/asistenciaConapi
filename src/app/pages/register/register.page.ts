@@ -16,7 +16,7 @@ export class RegisterPage implements OnInit {
   usuariologeado:{[key:string]: String;};
   observableusuarios:Observable<any>;
 
-  constructor(private router: Router,private dataService: DataService,private servicio:LogeosService,inidcadorservice:IndicadorService ) { }
+  constructor(private router: Router,private dataService: DataService,private servicio:LogeosService, ) { }
 
   ngOnInit() {
     this.observableusuarios = this.dataService.getBddusus();

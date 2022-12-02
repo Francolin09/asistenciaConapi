@@ -1,3 +1,4 @@
+import { NumberSymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { IndicadorService } from 'src/app/services/indicador.service';
 
@@ -6,9 +7,14 @@ import { IndicadorService } from 'src/app/services/indicador.service';
   templateUrl: './indicadores.page.html',
   styleUrls: ['./indicadores.page.scss'],
 })
-export class IndicadoresPage {
+export class IndicadoresPage implements OnInit {
 
-  indicadores:any;
+  indicadores:any[];
+  dolar:number;
+  euro:number;
+  uf:number;
+  utm:number;
+  bitcoin:number;
 
   constructor(private indicadorService: IndicadorService) {
     this.mostrarIndicadores()
@@ -21,9 +27,14 @@ export class IndicadoresPage {
   mostrarIndicadores():void{
     this.indicadorService.obtenerindicador()
     .then(respuesta=>{
-      console.log('respueexx',respuesta.bitcoin)
+      console.log('respueexx',respuesta.dolar.valor)
+      this.dolar=respuesta.dolar.valor;
+      this.bitcoin=respuesta.bitcoin.valor;
+      this.uf=respuesta.uf.valor;
+      this.utm=respuesta.utm.valor;
       this.indicadores = respuesta;
-      console.log(this.indicadores)
+      this.euro = respuesta.euro.valor
+      console.log('resssp indicadores',this.indicadores)
     },
     (error)=>{
       console.log(error);
